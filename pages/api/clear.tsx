@@ -1,6 +1,8 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
+import cache from 'memory-cache';
 
 export default (req, res) => {
-  res.statusCode = 200
-  res.json({ name: 'John Doe' })
+  cache.clear();
+  res.statusCode = 200;
+  res.end();
 }

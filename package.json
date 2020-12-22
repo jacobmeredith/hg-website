@@ -8,8 +8,21 @@
     "start": "next start"
   },
   "dependencies": {
+    "@kentico/kontent-delivery": "^10.1.0",
+    "axios": "^0.21.0",
+    "memory-cache": "^0.2.0",
     "next": "10.0.3",
+    "polished": "^4.0.5",
     "react": "17.0.1",
-    "react-dom": "17.0.1"
+    "react-dom": "17.0.1",
+    "rxjs": "^6.6.3",
+    "styled-components": "^5.2.1"
+  },
+  "devDependencies": {
+    "@types/memory-cache": "^0.2.1",
+    "@types/node": "^14.14.14",
+    "@types/react": "^17.0.0",
+    "@types/styled-components": "^5.1.5",
+    "typescript": "^4.1.3"
   }
 }
