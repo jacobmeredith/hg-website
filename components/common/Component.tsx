@@ -27,7 +27,7 @@ const ComponentSection = styled.section<{ backgroundColour, size }>`
         return '2em';
       }
     }
-  }} 0;
+  }} 2em;
   background-color: ${props => props.theme.colours[props.backgroundColour]};
 
   @media(max-width: ${props => props.theme.sizing.mobile}px) {

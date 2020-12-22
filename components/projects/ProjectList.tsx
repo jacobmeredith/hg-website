@@ -35,7 +35,6 @@ const ProjectListContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
 
   @media(max-width: ${props => props.theme.sizing.mobile}px) {
     flex-direction: column;

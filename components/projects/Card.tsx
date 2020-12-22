@@ -47,19 +47,24 @@ const ArticleElement = styled.article<{ type: string }>`
     background-position: center center;
 
     ${props => props.type === 'vertical'
-    ? `
-        flex-basis: 30%;
-        margin-right: .5em;`
-    : `
-        flex-basis: 100%;
-        min-height: 10em;
-      `}
+      ? `
+          flex-basis: 30%;
+          margin-right: .5em;
+        `
+      : `
+          flex-basis: 100%;
+          min-height: 10em;
+          max-height: 10em;
+        `}
   }
 
   > div:last-of-type {
     flex-basis: 70%;
     padding: 1em;
-    margin-left: .5em;
+
+    ${props => props.type === 'vertical'
+      ? `margin-left: .5em;`
+      : `margin-left: 0;`}
   }
 `;
 

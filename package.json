@@ -15,6 +15,8 @@
     "polished": "^4.0.5",
     "react": "17.0.1",
     "react-dom": "17.0.1",
+    "react-feather": "^2.0.9",
+    "react-youtube": "^7.13.0",
     "rxjs": "^6.6.3",
     "styled-components": "^5.2.1"
   },

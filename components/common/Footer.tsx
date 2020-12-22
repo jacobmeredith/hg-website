@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { Phone, Mail } from 'react-feather';
+
 import Container from './Container';
 
 const Footer = ({ phoneNumber, emailAddress, address }) => {
@@ -8,9 +10,11 @@ const Footer = ({ phoneNumber, emailAddress, address }) => {
     <FooterElement>
       <Container>
         {phoneNumber && <FooterParagraph>
+          <Phone color='white' />
           <FooterLink href={`tel:${phoneNumber}`}>{phoneNumber}</FooterLink>
         </FooterParagraph>}
         {emailAddress && <FooterParagraph>
+          <Mail color='white' />  
           <FooterLink href={`mailto:${emailAddress}`}>{emailAddress}</FooterLink>
         </FooterParagraph>}
         {address && <FooterAddress dangerouslySetInnerHTML={{ __html: address }} />}
@@ -30,9 +34,11 @@ const FooterElement = styled.footer`
 
 const FooterParagraph = styled.p`
   margin-bottom: .5em;
+  display: flex;
 `;
 
 const FooterLink = styled.a`
+  margin-left: .5em;
   color: ${props => props.theme.colours.white};
 `;
 
