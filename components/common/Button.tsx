@@ -13,6 +13,7 @@ const ButtonElement = styled.a<{ type: string }>`
   display: inline-block;
   background-color: ${props => props.theme.colours[props.type]};
   color: ${props => props.theme.colours.white};
+  text-decoration: none;
 
   &:hover {
     background-color: ${props => darken(0.1, props.theme.colours[props.type])};

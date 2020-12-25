@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { Phone, Mail } from 'react-feather';
+import { MapPin, Phone, Mail } from 'react-feather';
 
 import Container from './Container';
 
@@ -9,15 +9,22 @@ const Footer = ({ phoneNumber, emailAddress, address }) => {
   return (
     <FooterElement>
       <Container>
-        {phoneNumber && <FooterParagraph>
-          <Phone color='white' />
-          <FooterLink href={`tel:${phoneNumber}`}>{phoneNumber}</FooterLink>
-        </FooterParagraph>}
-        {emailAddress && <FooterParagraph>
-          <Mail color='white' />  
-          <FooterLink href={`mailto:${emailAddress}`}>{emailAddress}</FooterLink>
-        </FooterParagraph>}
-        {address && <FooterAddress dangerouslySetInnerHTML={{ __html: address }} />}
+        <FooterContainer>
+          {address && <div>
+            <MapPin color='white' />
+            <FooterAddress dangerouslySetInnerHTML={{ __html: address }} />
+          </div>}
+          {(phoneNumber || emailAddress) && <div>
+            {phoneNumber && <FooterParagraph>
+              <Phone color='white' />
+              <FooterLink href={`tel:${phoneNumber}`}>{phoneNumber}</FooterLink>
+            </FooterParagraph>}
+            {emailAddress && <FooterParagraph>
+              <Mail color='white' />  
+              <FooterLink href={`mailto:${emailAddress}`}>{emailAddress}</FooterLink>
+            </FooterParagraph>}
+          </div>}
+        </FooterContainer>
       </Container>
     </FooterElement>
   )
@@ -29,6 +36,14 @@ const FooterElement = styled.footer`
 
   @media(max-width: ${props => props.theme.sizing.mobile}px) {
     padding: 2em;
+  }
+`;
+
+const FooterContainer = styled.div`
+  display: flex;
+
+  > * {
+    flex: 1;
   }
 `;
 

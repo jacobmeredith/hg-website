@@ -6,6 +6,8 @@ import theme from './../../config/theme';
 import Header from './Header';
 import Footer from './Footer';
 
+import Breadcrumbs from './Breadcrumbs';
+
 const PageWrapper = ({ title, description, settings, children }) => {
   return (
     <ThemeProvider theme={theme}>
@@ -17,6 +19,7 @@ const PageWrapper = ({ title, description, settings, children }) => {
         logo={settings.item.elements.logo.value[0]}
         items={settings.item.elements.navigation_items.value}
         modularContent={settings.modular_content} />
+      <Breadcrumbs />
       <main>
         {children}
       </main>

@@ -42,6 +42,13 @@ const ArticleElement = styled.article<{ type: string }>`
     margin-bottom: 0;
   }
 
+  a {
+    display: inline-flex;
+    margin-top: auto;
+    justify-self: center;
+    align-self: flex-start;
+  }
+
   > div:first-of-type {
     background-size: cover;
     background-position: center center;
@@ -61,6 +68,12 @@ const ArticleElement = styled.article<{ type: string }>`
   > div:last-of-type {
     flex-basis: 70%;
     padding: 1em;
+    display: flex;
+    flex-direction: column;
+
+    > div {
+      margin-bottom: .5em;
+    }
 
     ${props => props.type === 'vertical'
       ? `margin-left: .5em;`

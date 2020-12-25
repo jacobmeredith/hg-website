@@ -2,24 +2,29 @@ import React from 'react';
 import styled from 'styled-components';
 
 import Container from '../common/Container';
+import Gallery from './../Gallery';
 
 const Project = ({ project }) => {
   const { featured_image, title, information, start_date, images, brand } = project.item.elements;
 
+  const gallery = images.value.map(image => {
+    return { src: image.url, alt: image.description }
+  });
+
   return (
-    <Container>
-      <ProjectContainer>
-        <ProjectHeader style={{ backgroundImage: `url(${featured_image.value[0].url})` }}>
-          <div className='content'>
-            <h1>{title.value}</h1>
-          </div>
-        </ProjectHeader>
-        <div dangerouslySetInnerHTML={{ __html: information.value }} />
-        <div>
-          <p>Gallery here</p>
-        </div>
-      </ProjectContainer>
-    </Container>
+    <>
+      <Container>
+        <ProjectContainer>
+          <ProjectHeader style={{ backgroundImage: `url(${featured_image.value[0].url})` }}>
+            <div className='content'>
+              <h1>{title.value}</h1>
+            </div>
+          </ProjectHeader>
+          <ProjectContent dangerouslySetInnerHTML={{ __html: information.value }} />
+        </ProjectContainer>
+      </Container>
+      <Gallery items={gallery} />    
+    </>
   )
 }
 
@@ -35,6 +40,7 @@ const ProjectHeader = styled.header`
   min-height: 40vh;
   background-position: center center;
   background-position: cover;
+  margin-bottom: 1.5em;
 
   .content {
     position: absolute;
@@ -46,6 +52,20 @@ const ProjectHeader = styled.header`
     padding: .5em 1.5em;
     max-width: 70%;
     text-align: center;
+  }
+`;
+
+const ProjectContent = styled.div`
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    margin-bottom: .5em;
+  }
+
+  p {
+    margin-bottom: 1em;
   }
 `;
 

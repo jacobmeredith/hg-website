@@ -17,3 +17,8 @@ a {
   margin: 0;
   line-height: 1.7;
 }
+
+a {
+  color: #2a3672;
+  text-decoration: underline;
+}
