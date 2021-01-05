@@ -26,7 +26,7 @@ const Banner = ({ item }) => {
   return (
     <BannerElement hasVideo={!!item.elements.youtube_id.value} style={{ backgroundImage: item.elements.background_image.value.length > 0 ? `url(${item.elements.background_image.value[0].url})` : 'none' }}>
       {item.elements.youtube_id.value && youtubeVideo}
-      {(item.elements.title.value || item.elements.content.value) && <BannerContentContainer>
+      {(item.elements.title.value && item.elements.content.value) && <BannerContentContainer>
         <Container>
           <BannerContent>
             <h1>{item.elements.title.value}</h1>
