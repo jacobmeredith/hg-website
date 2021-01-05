@@ -42,8 +42,16 @@ const FooterElement = styled.footer`
 const FooterContainer = styled.div`
   display: flex;
 
+  @media(max-width: ${props => props.theme.sizing.mobile}px) {
+    flex-direction: column;
+  }
+
   > * {
     flex: 1;
+
+    @media(max-width: ${props => props.theme.sizing.mobile}px) {
+      margin-bottom: 1em;
+    }
   }
 `;
 

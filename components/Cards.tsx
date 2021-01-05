@@ -6,7 +6,11 @@ import Component from './common/Component';
 
 const Cards = ({ item, modularContent }) => {
   const map = item.elements.components.value.map(card => (
-    <Card key={modularContent[card].system.id} id={modularContent[card].system.id} {...modularContent[card].elements} />
+    <Card
+      key={modularContent[card].system.id}
+      id={modularContent[card].system.id}
+      backgroundColour={item.elements.component__background_color.value[0].codename}
+      {...modularContent[card].elements} />
   ));
 
   return (

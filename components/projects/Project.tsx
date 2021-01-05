@@ -1,19 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Container from '../common/Container';
+import Component from './../common/Component';
 import Gallery from './../Gallery';
 
 const Project = ({ project }) => {
   const { featured_image, title, information, start_date, images, brand } = project.item.elements;
-
   const gallery = images.value.map(image => {
     return { src: image.url, alt: image.description }
   });
 
   return (
     <>
-      <Container>
+      <Component>
         <ProjectContainer>
           <ProjectHeader style={{ backgroundImage: `url(${featured_image.value[0].url})` }}>
             <div className='content'>
@@ -21,9 +20,16 @@ const Project = ({ project }) => {
             </div>
           </ProjectHeader>
           <ProjectContent dangerouslySetInnerHTML={{ __html: information.value }} />
+          <div>
+            <h2>Completed on behalf of</h2>
+            <img
+              style={{ maxWidth: '100%' }}
+              src={project.modular_content[project.item.elements.brand.value[0]].elements.logo.value[0].url} 
+              alt={project.modular_content[project.item.elements.brand.value[0]].elements.logo.value[0].description} />
+          </div>
         </ProjectContainer>
-      </Container>
-      <Gallery items={gallery} />    
+      </Component>
+      <Gallery title='Gallery' items={gallery} />    
     </>
   )
 }

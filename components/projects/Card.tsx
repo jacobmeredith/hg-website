@@ -18,6 +18,7 @@ const Card = ({ type, title, page_url, featured_image, excerpt }) => {
 
 const ArticleElement = styled.article<{ type: string }>`
   display: flex;
+
   ${props => props.type === 'vertical'
     ? `
         flex-direction: row;
@@ -33,6 +34,9 @@ const ArticleElement = styled.article<{ type: string }>`
   @media(max-width: ${props => props.theme.sizing.mobile}px) {
     width: 100%;
     margin-bottom: 1em;
+    flex-direction: column;
+    min-height: initial;
+    max-height: initial;
   }
 
   background-color: ${props => props.theme.colours.white};
@@ -53,8 +57,15 @@ const ArticleElement = styled.article<{ type: string }>`
     background-size: cover;
     background-position: center center;
 
+    @media(max-width: ${props => props.theme.sizing.mobile}px) {
+      flex-basis: 100%;
+      min-height: 10em;
+      max-height: 10em;
+      margin-right: 0;
+    }
+
     ${props => props.type === 'vertical'
-      ? `
+        ? `
           flex-basis: 30%;
           margin-right: .5em;
         `

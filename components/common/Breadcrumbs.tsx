@@ -2,7 +2,7 @@ import React from 'react';
 import { useRouter } from 'next/router'
 import styled from 'styled-components';
 
-import Container from './Container';
+import Component from './Component';
 
 const Breadcrumbs = () => {
   const router = useRouter();
@@ -32,7 +32,7 @@ const Breadcrumbs = () => {
   }
 
   return (
-    <Container>
+    <Component size='small'>
       <BreadcrumbsList>
         <li>
           <span>
@@ -42,7 +42,7 @@ const Breadcrumbs = () => {
         </li>
         {map}
       </BreadcrumbsList>
-    </Container>
+    </Component>
   )
 }
 

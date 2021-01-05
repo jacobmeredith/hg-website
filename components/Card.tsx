@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Card = ({ id, content, image, title }) => {
+const Card = ({ id, content, image, title, backgroundColour }) => {
   return (
-    <CardElement>
+    <CardElement backgroundColour={backgroundColour}>
       <CardImage style={{ backgroundImage: `url(${image.value[0].url})` }} />
       <CardContent>
         <h3>{title.value}</h3>
@@ -13,11 +13,14 @@ const Card = ({ id, content, image, title }) => {
   )
 }
 
-const CardElement = styled.div`
+const CardElement = styled.div<{ backgroundColour: string }>`
   flex: 1;
-  background-color: #f5f5f5;
   overflow: hidden;
   margin: 0 .5em;
+
+  ${props => props.backgroundColour === 'white'
+    ? `background-color: ${props.theme.colours.grey}`
+    : `background-color: ${props.theme.colours.white}`};
 
   @media(max-width: ${props => props.theme.sizing.mobile}px) {
     width: 100%;
