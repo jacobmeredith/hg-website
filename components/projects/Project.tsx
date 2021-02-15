@@ -44,6 +44,7 @@ const ProjectHeader = styled.header`
   flex-direction: column;
   position: relative;
   min-height: 40vh;
+  background-repeat: no-repeat;
   background-position: center center;
   background-position: cover;
   margin-bottom: 1.5em;
