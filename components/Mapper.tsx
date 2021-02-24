@@ -7,6 +7,8 @@ import LongText from './LongText';
 import Feature from './Feature';
 import Cards from './Cards';
 import ProjectList from './projects/ProjectList';
+import ImageSelection from './ImageSelection';
+import ContactForm from './ContactForm';
 
 const Mapper: React.FC<{ components: any, modularContent: any, projects: any }> = ({ components, modularContent, projects }) => {
   const map = components.map(component => {
@@ -31,6 +33,12 @@ const Mapper: React.FC<{ components: any, modularContent: any, projects: any }> 
       }
       case 'project_list': {
         return <ProjectList key={modularContent[component].system.id} item={modularContent[component]} modularContent={modularContent} projects={projects} />
+      }
+      case 'image_selection': {
+        return <ImageSelection key={modularContent[component].system.id} item={modularContent[component]} />
+      }
+      case 'contact_form': {
+        return <ContactForm key={modularContent[component].system.id} item={modularContent[component]} />
       }
       default: {
         return <section key={modularContent[component].system.id}>Could not find component {modularContent[component].system.type}</section>

@@ -23,7 +23,7 @@ const Project = ({ project }) => {
           <div>
             <h2>Completed on behalf of</h2>
             <img
-              style={{ maxWidth: '100%' }}
+              style={{ width: '300px', maxWidth: '100%' }}
               src={project.modular_content[project.item.elements.brand.value[0]].elements.logo.value[0].url} 
               alt={project.modular_content[project.item.elements.brand.value[0]].elements.logo.value[0].description} />
           </div>

@@ -5,23 +5,22 @@ import YouTube from 'react-youtube';
 import Container from './common/Container';
 
 const Banner = ({ item }) => {
-  const youtubeVideo = <VideoElement>
-      <YouTube
-        videoId={item.elements.youtube_id.value}
-        opts={{
-          playerVars: {
-            playlist: item.elements.youtube_id.value,
-            autoplay: 1,
-            loop: 1,
-            modestbranding: 1,
-            disablekb: 1,
-            mute: 1,
-            controls: 0,
-            showinfo: 0,
-            rel: 0,
-          }}
-        }/>
-      </VideoElement>
+  const youtubeVideo = <YouTube
+    className='video-element'
+    videoId={item.elements.youtube_id.value}
+    opts={{
+      playerVars: {
+        playlist: item.elements.youtube_id.value,
+        autoplay: 1,
+        loop: 1,
+        modestbranding: 1,
+        disablekb: 1,
+        mute: 1,
+        controls: 0,
+        showinfo: 0,
+        rel: 0,
+      }}
+    }/>
 
   return (
     <BannerElement hasVideo={!!item.elements.youtube_id.value} style={{ backgroundImage: item.elements.background_image.value.length > 0 ? `url(${item.elements.background_image.value[0].url})` : 'none' }}>
@@ -41,50 +40,43 @@ const Banner = ({ item }) => {
 const BannerElement = styled.section<{ hasVideo }>`
   position: relative;
   overflow: hidden;
-  min-height: ${props => props.hasVideo
-    ? '0'
-    : `
-        80vh;
-        padding: 2em;
-      `};
+  min-height: 60%;
   background-size: cover;
   background-position: center center;
   background-color: ${props => props.theme.colours.primary};
-`;
 
-const VideoElement = styled.div`
   > div {
+    height: auto;
+    height: 60vh;
+    width: 100%;
     position: relative;
-    overflow: hidden;
-    width: 100vw;
-    height: 100vh;
+    padding: 0;
+
+    @media(max-width: ${props => props.theme.sizing.mobile}px) {
+      height: 30vh;
+    }
   }
 
-  &:after {
-    content: '';
+  .video-element {
     position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
-    z-index: 20;
-    background-color: rgba(0, 0, 0, .1);
+    pointer-events: none;
   }
 
-  iframe {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 100vw;
-    height: 100vh;
-    transform: translate(-50%, -50%);
-    
-    @media (min-aspect-ratio: 16/9) {
-      height: 56.25vw;
+  @media (min-aspect-ratio: 16/9) {
+    .video-element {
+      height: 300%;
+      top:-100%;
     }
-    
-    @media (max-aspect-ratio: 16/9) {
-      width: 177.78vh;
+  }
+  
+  @media (max-aspect-ratio: 16/9) {
+    .video-element {
+      height: 150%; 
+      top:-25%;  
+      width: 300%; 
+      left: -100%
     }
   }
 `;

@@ -7,9 +7,9 @@ const Feature = ({ item }) => {
   return (
     <Component backgroundColour={item.elements.component__background_color.value[0].codename}>
       <FeatureContainer>
-        <div>
+        {item.elements.image.value.length > 0 && <div>
           <img src={item.elements.image.value[0].url} alt={item.elements.image.value[0].description} />
-        </div>
+        </div>}
         <div>
           {item.elements.title.value && <h2>{item.elements.title.value}</h2>}
           {item.elements.content.value && <div dangerouslySetInnerHTML={{ __html: item.elements.content.value }} />}

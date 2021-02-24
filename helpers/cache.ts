@@ -1,6 +1,7 @@
 import store from 'memory-cache';
 
 const cache = (key: string, data: any) => {
+  return data();
   let cachedValue = store.get(key);
 
   if (!cachedValue) {
