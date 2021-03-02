@@ -9,6 +9,7 @@ import Cards from './Cards';
 import ProjectList from './projects/ProjectList';
 import ImageSelection from './ImageSelection';
 import ContactForm from './ContactForm';
+import Social from './Social';
 
 const Mapper: React.FC<{ components: any, modularContent: any, projects: any }> = ({ components, modularContent, projects }) => {
   const map = components.map(component => {
@@ -39,6 +40,9 @@ const Mapper: React.FC<{ components: any, modularContent: any, projects: any }> 
       }
       case 'contact_form': {
         return <ContactForm key={modularContent[component].system.id} item={modularContent[component]} />
+      }
+      case 'social': {
+        return <Social key={modularContent[component].system.id} item={modularContent[component]} />
       }
       default: {
         return <section key={modularContent[component].system.id}>Could not find component {modularContent[component].system.type}</section>
