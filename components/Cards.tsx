@@ -17,7 +17,7 @@ const Cards = ({ item, modularContent }) => {
     <Component backgroundColour={item.elements.component__background_color.value[0].codename}>
       <ContentContainer>
         {item.elements.title.value && <h2>{item.elements.title.value}</h2>}
-        {item.elements.content.value && <div dangerouslySetInnerHTML={{ __html: item.elements.content.value }} />}
+        {item.elements.content.value !== '<p><br></p>' && <div dangerouslySetInnerHTML={{ __html: item.elements.content.value }} />}
       </ContentContainer>
       <CardContainer>
         {map}

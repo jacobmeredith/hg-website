@@ -3,9 +3,9 @@ import styled from 'styled-components';
 
 import Button from './../common/Button';
 
-const Card = ({ type, title, page_url, featured_image, excerpt }) => {
+const Card = ({ type, title, page_url, featured_image, excerpt, backgroundColour }) => {
   return (
-    <ArticleElement type={type}>
+    <ArticleElement type={type} backgroundColour={backgroundColour}>
       <div style={{ backgroundImage: `url(${featured_image.value[0].url})` }} />
       <div>
         <h3>{title.value}</h3>
@@ -16,7 +16,7 @@ const Card = ({ type, title, page_url, featured_image, excerpt }) => {
   )
 }
 
-const ArticleElement = styled.article<{ type: string }>`
+const ArticleElement = styled.article<{ type: string, backgroundColour: string }>`
   display: flex;
 
   ${props => props.type === 'vertical'
@@ -39,7 +39,7 @@ const ArticleElement = styled.article<{ type: string }>`
     max-height: initial;
   }
 
-  background-color: ${props => props.theme.colours.white};
+  background-color: ${props => props.backgroundColour === 'white' ? props.theme.colours.grey : props.theme.colours.white};
   overflow: hidden;
 
   &:last-of-type {

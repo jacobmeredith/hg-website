@@ -8,7 +8,7 @@ const Heading = ({ item }) => {
     <Component backgroundColour='secondary' size='default'>
       <HeadingContainer>
         {item.elements.title.value && <h1>{item.elements.title.value}</h1>}
-        {item.elements.content.value && <div dangerouslySetInnerHTML={{ __html: item.elements.content.value }} />}
+        {item.elements.content.value !== '<p><br></p>' && <div dangerouslySetInnerHTML={{ __html: item.elements.content.value }} />}
       </HeadingContainer>
     </Component>
   )

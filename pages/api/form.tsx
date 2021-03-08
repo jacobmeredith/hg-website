@@ -1,4 +1,5 @@
 import mail from '@sendgrid/mail';
+import store from 'memory-cache';
 
 export default (req, res) => {
   if (req.method !== 'POST') return
@@ -6,12 +7,12 @@ export default (req, res) => {
   const { name, email, phone, message } = req.body
 
   mail.setApiKey(process.env.SENDGRID_API_KEY);
-  
+
   const emailMessage = {
-    to: 'jacobmeredith@hotmail.co.uk',
+    to: process.env.DEFAULT_EMAIL_ADDRESS,
     from: 'jake@jwm.digital',
     subject: 'Website contact form',
-    text: 'and easy to do anywhere, even with Node.js',
+    text: 'Issue sending HTML email',
     html: `
       <table style="border: 1px solid #ddd; border-collapse: collapse;">
         <thead>

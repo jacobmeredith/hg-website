@@ -2,13 +2,15 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Card = ({ id, content, image, title, backgroundColour }) => {
+  const hasContent = (title.value || content.value != '<p><br></p>');
+
   return (
-    <CardElement backgroundColour={backgroundColour}>
+    <CardElement backgroundColour={hasContent ? backgroundColour : 'grey'}>
       <CardImage style={{ backgroundImage: `url(${image.value[0].url})` }} />
-      <CardContent>
+      {hasContent && <CardContent>
         <h3>{title.value}</h3>
         <div dangerouslySetInnerHTML={{ __html: content.value }} />
-      </CardContent>
+      </CardContent>}
     </CardElement>
   )
 }

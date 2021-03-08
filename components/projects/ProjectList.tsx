@@ -6,8 +6,8 @@ import Card from './Card';
 
 const ProjectList = ({ item, modularContent, projects }) => {
   const projectsListMap = item.elements.projects.value.length > 0
-    ? item.elements.projects.value.map(project => <Card key={modularContent[project].system.id} type='horizontal' {...modularContent[project].elements} />)
-    : projects.items.slice(0, 3).map(project => <Card key={project.system.id} type='horizontal' {...project.elements} />);
+    ? item.elements.projects.value.map(project => <Card key={modularContent[project].system.id} type='horizontal' backgroundColour={item.elements.component__background_color.value[0].codename} {...modularContent[project].elements} />)
+    : projects.items.slice(0, 3).map(project => <Card key={project.system.id} type='horizontal' backgroundColour={item.elements.component__background_color.value[0].codename} {...project.elements} />);
 
   return (
     <Component backgroundColour={item.elements.component__background_color.value[0].codename} size={item.elements.component__size.value[0].codename}>

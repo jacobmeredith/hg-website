@@ -17,7 +17,8 @@ const Social = ({ item }) => {
           sourceType='profile'
           screenName='hgfairhurst'
           options={{ height: 400 }}
-          borderColor='#ddd' />
+          borderColor='#ddd'
+          className='test' />
       </SocialContainer>
     </Component>
   );
@@ -34,6 +35,10 @@ const ContentContainer = styled.div`
 const SocialContainer = styled.div`
   display: flex;
   flex-direction: row;
+
+  .twitter-timeline {
+    border: 1px solid #ddd !important;
+  }
 `;
 
 export default Social;

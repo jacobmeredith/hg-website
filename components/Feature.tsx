@@ -28,7 +28,7 @@ const FeatureContainer = styled.div`
 
   > div:first-child {
     flex-basis: 30%;
-    margin-right: .5em;
+    margin-right: 1em;
     border-radius: .5em;
     overflow: hidden;
 
@@ -45,7 +45,7 @@ const FeatureContainer = styled.div`
 
   > div:last-child {
     flex-basis: 70%;
-    margin-left: .5em;
+    margin-left: 1em;
     display: flex;
     flex-direction: column;
     justify-content: center;

@@ -12,7 +12,7 @@ const PageWrapper = ({ title, description, settings, children }) => {
   return (
     <ThemeProvider theme={theme}>
       <Head>
-        <title>{title}</title>
+        <title>{title} | H&amp;G Fairhurst Plastering</title>
         <meta name='description' content={description} />
       </Head>
       <Header
