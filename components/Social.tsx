@@ -10,7 +10,7 @@ const Social = ({ item }) => {
     <Component backgroundColour={item.elements.component__background_color.value[0].codename} size={item.elements.component__size.value[0].codename}>
       <ContentContainer>
         {item.elements.title.value && <h2>{item.elements.title.value}</h2>}
-        {item.elements.content.value && <div dangerouslySetInnerHTML={{ __html: item.elements.content.value }} />}
+        {item.elements.content.value !== '<p><br></p>' && <div dangerouslySetInnerHTML={{ __html: item.elements.content.value }} />}
       </ContentContainer>
       <SocialContainer>
         <TwitterTimelineEmbed
@@ -30,11 +30,14 @@ const ContentContainer = styled.div`
   justify-content: center;
   align-items: center;
   text-align: center; 
+  margin-bottom: 1rem;
 `;
 
 const SocialContainer = styled.div`
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  align-items: center;
 
   .twitter-timeline {
     border: 1px solid #ddd !important;
