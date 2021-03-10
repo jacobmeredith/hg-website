@@ -6,7 +6,7 @@ const Card = ({ id, content, image, title, backgroundColour }) => {
 
   return (
     <CardElement backgroundColour={hasContent ? backgroundColour : 'grey'}>
-      <CardImage src={image.value[0].url} />
+      {image.value.length > 0 && <CardImage src={image.value[0].url} alt={image.value[0].description} />}
       {hasContent && <CardContent>
         <h3>{title.value}</h3>
         <div dangerouslySetInnerHTML={{ __html: content.value }} />
@@ -48,7 +48,7 @@ const CardElement = styled.div<{ backgroundColour: string }>`
 
 const CardImage = styled.img`
   object-fit: cover;
-  max-height: 20em;
+  max-height: 30em;
   width: 100%;
 `;
 
