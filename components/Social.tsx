@@ -42,6 +42,11 @@ const SocialContainer = styled.div`
   .twitter-timeline {
     border: 1px solid #ddd !important;
   }
+
+  .instagram-media {
+    max-height: 400px;
+    overflow-y: scroll;
+  }
 `;
 
 export default Social;

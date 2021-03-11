@@ -11,7 +11,7 @@ const Feature = ({ item }) => {
           <img src={item.elements.image.value[0].url} alt={item.elements.image.value[0].description} />
         </div>}
         <div>
-          {item.elements.title.value && <h2>{item.elements.title.value}</h2>}
+          {item.elements.title.value && <h3>{item.elements.title.value}</h3>}
           {item.elements.content.value && <div dangerouslySetInnerHTML={{ __html: item.elements.content.value }} />}
         </div>
       </FeatureContainer>
@@ -49,6 +49,10 @@ const FeatureContainer = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
+
+    h3 {
+      margin-bottom: .75em;
+    }
 
     @media(max-width: ${props => props.theme.sizing.mobile}px) {
       margin-left: 0;
